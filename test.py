@@ -1,4 +1,5 @@
-from main import possible_movements, movement_validation_within_board
+from main import possible_movements
+from validations import movement_validation_within_board, validation_visited_squares
 
 
 def test_possible_movements():
@@ -17,3 +18,9 @@ def test_movement_validation_within_board():
     assert not movement_validation_within_board([-3, 2])
     assert not movement_validation_within_board([3, -2])
     assert not movement_validation_within_board([-3, -5])
+
+
+def test_validation_visited_squares():
+    assert validation_visited_squares([3, 2], [[2, 4], [1, 2]])
+    assert not validation_visited_squares([1, 2], [[2, 4], [1, 2]])
+    assert not validation_visited_squares([3, 4], [[2, 4], [1, 2], [3, 4], [4, 2]])
