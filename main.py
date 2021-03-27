@@ -31,3 +31,15 @@ def possible_movements(current_position):
            ]
 
     return movements
+
+
+def movement_validation_within_board(movent):
+    valid_move =True
+
+    if movent[0] < 0 or movent[0] > 7:
+        valid_move = False
+
+    if movent[1] < 0 or movent[1] > 7:
+        valid_move = False
+
+    return valid_move
