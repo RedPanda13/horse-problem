@@ -10,25 +10,3 @@ bord = [
     ['A7', 'B7', 'C7', 'D7', 'E7', 'F7', 'G7', 'H7'],
     ['A8', 'B8', 'C8', 'D8', 'E8', 'F8', 'G8', 'H8']
 ]
-
-
-def possible_movements(current_position):
-    movement_up_right = [current_position[0] - 2, current_position[1] + 1]
-    movement_up_left = [current_position[0] - 2, current_position[1] - 1]
-
-    movement_down_right = [current_position[0] + 2, current_position[1] + 1]
-    movement_down_left = [current_position[0] + 2, current_position[1] - 1]
-
-    movement_left_up = [current_position[1] - 2, current_position[0] - 1]
-    movement_left_down = [current_position[1] - 2, current_position[0] + 1]
-
-    movement_right_up = [current_position[1] + 2, current_position[0] - 1]
-    movement_right_down = [current_position[1] + 2, current_position[0] + 1]
-
-
-    movements = [
-            movement_up_right, movement_up_left, movement_down_right, movement_down_left,
-            movement_left_up, movement_left_down, movement_right_up, movement_right_down
-           ]
-
-    return movements
