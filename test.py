@@ -1,4 +1,4 @@
-from main import possible_movements
+from movements import possible_movements
 from validations import movement_validation_within_board, validation_visited_squares
 
 
