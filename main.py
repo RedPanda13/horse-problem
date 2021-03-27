@@ -13,17 +13,18 @@ bord = [
 
 
 def possible_movements(current_position):
-    movement_up_right = [current_position[0] + 2, current_position[1] + 1]
-    movement_up_left = [current_position[0] + 2, current_position[1] - 1]
+    movement_up_right = [current_position[0] - 2, current_position[1] + 1]
+    movement_up_left = [current_position[0] - 2, current_position[1] - 1]
 
-    movement_down_right = [current_position[0] - 2, current_position[1] + 1]
-    movement_down_left = [current_position[0] - 2, current_position[1] - 1]
+    movement_down_right = [current_position[0] + 2, current_position[1] + 1]
+    movement_down_left = [current_position[0] + 2, current_position[1] - 1]
 
-    movement_left_up = [current_position[1] - 2, current_position[0] + 1]
-    movement_left_down = [current_position[1] - 2, current_position[0] - 1]
+    movement_left_up = [current_position[1] - 2, current_position[0] - 1]
+    movement_left_down = [current_position[1] - 2, current_position[0] + 1]
 
-    movement_right_up = [current_position[1] + 2, current_position[0] + 1]
-    movement_right_down = [current_position[1] + 2, current_position[0] - 1]
+    movement_right_up = [current_position[1] + 2, current_position[0] - 1]
+    movement_right_down = [current_position[1] + 2, current_position[0] + 1]
+
 
     movements = [
             movement_up_right, movement_up_left, movement_down_right, movement_down_left,
@@ -31,15 +32,3 @@ def possible_movements(current_position):
            ]
 
     return movements
-
-
-def movement_validation_within_board(movent):
-    valid_move =True
-
-    if movent[0] < 0 or movent[0] > 7:
-        valid_move = False
-
-    if movent[1] < 0 or movent[1] > 7:
-        valid_move = False
-
-    return valid_move
