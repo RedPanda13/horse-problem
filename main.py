@@ -12,22 +12,22 @@ bord = [
 ]
 
 
-def walking(current_position):
-    walking_up_right = [current_position[0] + 2, current_position[1] + 1]
-    walking_up_left = [current_position[0] + 2, current_position[1] - 1]
+def possible_movements(current_position):
+    movement_up_right = [current_position[0] + 2, current_position[1] + 1]
+    movement_up_left = [current_position[0] + 2, current_position[1] - 1]
 
-    walking_down_right = [current_position[0] - 2, current_position[1] + 1]
-    walking_down_left = [current_position[0] - 2, current_position[1] - 1]
+    movement_down_right = [current_position[0] - 2, current_position[1] + 1]
+    movement_down_left = [current_position[0] - 2, current_position[1] - 1]
 
-    walking_left_up = [current_position[1] - 2, current_position[0] + 1]
-    walking_left_down = [current_position[1] - 2, current_position[0] - 1]
+    movement_left_up = [current_position[1] - 2, current_position[0] + 1]
+    movement_left_down = [current_position[1] - 2, current_position[0] - 1]
 
-    walking_right_up = [current_position[1] + 2, current_position[0] + 1]
-    walking_right_down = [current_position[1] + 2, current_position[0] - 1]
+    movement_right_up = [current_position[1] + 2, current_position[0] + 1]
+    movement_right_down = [current_position[1] + 2, current_position[0] - 1]
 
-    ways = [
-            walking_up_right, walking_up_left, walking_down_right, walking_down_left,
-            walking_left_up, walking_left_down, walking_right_up, walking_right_down
+    movements = [
+            movement_up_right, movement_up_left, movement_down_right, movement_down_left,
+            movement_left_up, movement_left_down, movement_right_up, movement_right_down
            ]
 
-    return ways
+    return movements
