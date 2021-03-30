@@ -1,11 +1,11 @@
 def movement_within_board(movement):
-    within_board = True if 0 < movement[1][0] < 7 and 0 < movement[1][1] < 7 else False
+    within_board = True if 0 < movement[0] < 7 and 0 < movement[1] < 7 else False
 
     return within_board
 
 
 def visited_square(movement, visited_squares):
-    not_visited_squares = True if movement[1] not in visited_squares else False
+    not_visited_squares = True if movement not in visited_squares else False
 
     return not_visited_squares
 
