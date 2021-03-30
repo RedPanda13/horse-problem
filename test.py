@@ -3,24 +3,24 @@ from validations import movement_validation_within_board, validation_visited_squ
 
 
 def test_possible_movements():
-    assert [-1, 2] == possible_movements([1, 1])[0]
-    assert [-1, 0] == possible_movements([1, 1])[1]
-    assert [3, 2] == possible_movements([1, 1])[2]
-    assert [3, 0] == possible_movements([1, 1])[3]
-    assert [-1, 0] == possible_movements([1, 1])[4]
-    assert [-1, 2] == possible_movements([1, 1])[5]
-    assert [3, 0] == possible_movements([1, 1])[6]
-    assert [3, 2] == possible_movements([1, 1])[7]
+    assert [-1, 2] == possible_movements([1, 1])[0][1]
+    assert [3, 2] == possible_movements([1, 1])[1][1]
+    assert [3, 0] == possible_movements([1, 1])[2][1]
+    assert [3, 2] == possible_movements([1, 1])[3][1]
+    assert [-1, 0] == possible_movements([1, 1])[4][1]
+    assert [3, 0] == possible_movements([1, 1])[5][1]
+    assert [-1, 0] == possible_movements([1, 1])[6][1]
+    assert [-1, 2] == possible_movements([1, 1])[7][1]
 
 
 def test_movement_validation_within_board():
-    assert movement_validation_within_board([1, 3])
-    assert not movement_validation_within_board([-3, 2])
-    assert not movement_validation_within_board([3, -2])
-    assert not movement_validation_within_board([-3, -5])
+    assert movement_validation_within_board(['movement_up_right', [1, 3]])
+    assert not movement_validation_within_board(['movement_down_left', [-3, 2]])
+        assert not movement_validation_within_board(['movement_left_up', [3, -2]])
+    assert not movement_validation_within_board(['movement_down_right', [-3, -5]])
 
 
 def test_validation_visited_squares():
-    assert validation_visited_squares([3, 2], [[2, 4], [1, 2]])
-    assert not validation_visited_squares([1, 2], [[2, 4], [1, 2]])
-    assert not validation_visited_squares([3, 4], [[2, 4], [1, 2], [3, 4], [4, 2]])
+    assert validation_visited_squares(['movement_up_right', [3, 2]], [[2, 4], [1, 2]])
+    assert not validation_visited_squares(['movement_down_left', [1, 2]], [[2, 4], [1, 2]])
+    assert not validation_visited_squares(['movement_left_up', [3, 4]], [[2, 4], [1, 2], [3, 4], [4, 2]])
