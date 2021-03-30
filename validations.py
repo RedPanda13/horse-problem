@@ -4,7 +4,7 @@ def movement_within_board(movement):
     return within_board
 
 
-def visited_squares(movement, visited_squares):
+def visited_square(movement, visited_squares):
     not_visited_squares = True if movement[1] not in visited_squares else False
 
     return not_visited_squares
@@ -12,7 +12,7 @@ def visited_squares(movement, visited_squares):
 
 def valid_move(movement, visited_squares):
     within_board = movement_within_board(movement)
-    not_visited_squares = visited_squares(movement, visited_squares)
+    not_visited_squares = visited_square(movement, visited_squares)
 
     valid_movement = True if within_board and not_visited_squares else False
 
