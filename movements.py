@@ -1,3 +1,5 @@
+from random import randint
+
 def possible_movements(current_position):
     movement_up_right = [current_position[0] - 2, current_position[1] + 1]
     movement_up_left = [current_position[0] - 2, current_position[1] - 1]
@@ -19,3 +21,9 @@ def possible_movements(current_position):
                 ]
 
     return movements
+
+
+def get_random_movement(movements):
+    chosen_movement = movements[randint(0, 7)]
+
+    return chosen_movement
