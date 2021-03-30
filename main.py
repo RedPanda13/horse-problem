@@ -1,4 +1,5 @@
-from random import randint
+from movements import possible_movements, get_random_movement
+from validations import valid_move
 
 bord = [
     ['A1', 'B1', 'C1', 'D1', 'E1', 'F1', 'G1', 'H1'],
@@ -10,3 +11,37 @@ bord = [
     ['A7', 'B7', 'C7', 'D7', 'E7', 'F7', 'G7', 'H7'],
     ['A8', 'B8', 'C8', 'D8', 'E8', 'F8', 'G8', 'H8']
 ]
+
+
+def horse_walk():
+    current_position = [0, 0]
+    visited_squares = []
+    invalid_movements = []
+    flag = True
+    while flag:
+        movements = possible_movements(current_position)
+        movement = get_random_movement(movements)
+        if not valid_move(movement, visited_squares):
+            invalid_movements.append(movement)
+
+            while not valid_move(movement, visited_squares):
+                movement = get_random_movement(movements)
+
+                if movement not in invalid_movements:
+                    valid_move(movement, visited_squares)
+
+                    if not valid_move(movement, visited_squares) and movement not in invalid_movements:
+                        invalid_movements.append(movement)
+
+                if len(invalid_movements) >= 8:
+                    flag = False
+                    break
+
+        visited_squares.append(movement)
+        invalid_movements = []
+        current_position = movement
+
+    for position in visited_squares:
+        print(f'{position} = {bord[position[0]][position[1]]}')
+
+horse_walk()
