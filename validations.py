@@ -1,10 +1,5 @@
 def movement_validation_within_board(movement):
-    valid_move = True
-
-    if 7 > movement[1][0] < 0:
-        valid_move = False
-    if 7 > movement[1][1] < 0:
-        valid_move = False
+    valid_move = True if 0 < movement[1][0] < 7 and 0 < movement[1][1] < 7 else False
 
     return valid_move
 
