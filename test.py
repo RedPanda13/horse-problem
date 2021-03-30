@@ -1,5 +1,7 @@
-from movements import possible_movements,get_random_movement
-from validations import movement_validation_within_board, validation_visited_squares
+from movements import possible_movements, get_random_movement
+from validations import movement_validation_within_board, validation_visited_squares, valid_move
+
+visited_squares = [[2, 4], [1, 2], [3, 4], [4, 2]]
 
 
 def test_possible_movements():
@@ -27,9 +29,16 @@ def test_validation_visited_squares():
 
 
 def test_get_random_movement():
-    assert 2 == len(get_random_movement([
-                                            ['movement_up_right', [2, 4]], ['movement_down_right', [1, 2]],
-                                            ['movement_right_up', [2, 4]], ['movement_right_down', [1, 2]],
-                                            ['movement_up_left', [3, 4]], ['movement_down_left', [4, 2]],
-                                            ['movement_left_up', [2, 4]], ['movement_left_down', [4, 2]]
-                                        ]))
+    assert 2 == len(get_random_movement([['movement_up_right', [2, 4]], ['movement_down_right', [1, 2]],
+                                         ['movement_right_up', [2, 4]], ['movement_right_down', [1, 2]],
+                                         ['movement_up_left', [3, 4]], ['movement_down_left', [4, 2]],
+                                         ['movement_left_up', [2, 4]], ['movement_left_down', [4, 2]]
+                                         ]))
+
+
+def test_valid_move():
+    assert valid_move(['movement_up_right', [1, 3]], visited_squares)
+    assert valid_move(['movement_down_right', [1, 5]], visited_squares)
+    assert not valid_move(['movement_down_left', [-3, 2]], visited_squares)
+    assert not valid_move(['movement_right_up', [2, 4]], visited_squares)
+    assert not valid_move(['movement_left_down', [4, 2]], visited_squares)
