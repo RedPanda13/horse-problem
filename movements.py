@@ -1,4 +1,4 @@
-from random import randint
+from random import choice
 
 
 def possible_movements(current_position):
@@ -8,11 +8,11 @@ def possible_movements(current_position):
     movement_down_right = [current_position[0] + 2, current_position[1] + 1]
     movement_down_left = [current_position[0] + 2, current_position[1] - 1]
 
-    movement_left_up = [current_position[1] - 2, current_position[0] - 1]
-    movement_left_down = [current_position[1] - 2, current_position[0] + 1]
+    movement_left_up = [current_position[0] - 1, current_position[1] - 2]
+    movement_left_down = [current_position[0] + 1, current_position[1] - 2]
 
-    movement_right_up = [current_position[1] + 2, current_position[0] - 1]
-    movement_right_down = [current_position[1] + 2, current_position[0] + 1]
+    movement_right_up = [current_position[0] - 1, current_position[1] + 2]
+    movement_right_down = [current_position[0] + 1, current_position[1] + 2]
 
     movements = [
                     movement_up_right, movement_down_right, movement_right_up, movement_right_down,
@@ -23,6 +23,6 @@ def possible_movements(current_position):
 
 
 def get_random_movement(movements):
-    chosen_movement = (movements[randint(0, 7)])
+    chosen_movement = movements.pop(movements.index(choice(movements)))
 
     return chosen_movement
