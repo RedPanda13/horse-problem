@@ -15,33 +15,32 @@ bord = [
 
 def horse_walk():
     current_position = [0, 0]
-    visited_squares = []
-    invalid_movements = []
+    visited_squares = [[0, 0]]
     flag = True
     while flag:
         movements = possible_movements(current_position)
         movement = get_random_movement(movements)
+
         if not valid_move(movement, visited_squares):
-            invalid_movements.append(movement)
 
             while not valid_move(movement, visited_squares):
                 movement = get_random_movement(movements)
+                valid_move(movement, visited_squares)
 
-                if movement not in invalid_movements:
-                    valid_move(movement, visited_squares)
-
-                    if not valid_move(movement, visited_squares) and movement not in invalid_movements:
-                        invalid_movements.append(movement)
-
-                if len(invalid_movements) >= 8:
+                if len(movements) == 0:
                     flag = False
                     break
 
-        visited_squares.append(movement)
-        invalid_movements = []
-        current_position = movement
+        if valid_move(movement, visited_squares):
+            visited_squares.append(movement)
+            current_position = movement
 
+    print(visited_squares)
     for position in visited_squares:
         print(f'{position} = {bord[position[0]][position[1]]}')
+    print(len(visited_squares))
+    print('------------------------------------------------------------------------')
+
+
 
 horse_walk()
