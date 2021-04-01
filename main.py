@@ -38,9 +38,8 @@ def horse_walk():
     print(visited_squares)
     for position in visited_squares:
         print(f'{position} = {bord[position[0]][position[1]]}')
-    print(len(visited_squares))
-    print('------------------------------------------------------------------------')
 
+    print(len(visited_squares))
 
 
 horse_walk()
