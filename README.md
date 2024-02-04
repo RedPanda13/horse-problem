@@ -8,7 +8,7 @@ precisa passar por todas as casas exatamente uma vez em movimentos consecutivos.
 ### Objetivo:
 Criar algoritmos usando TDD para fazer o cavalo andar pelo máximo de casas possíveis.
 
-### Restições:
+### Restrições:
 * #### Movimentos Possiveis:
     * Alto, Alto, Direita
     * Alto, Alto, Esquerda
